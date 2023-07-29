@@ -8,13 +8,13 @@ import { FormField, Loader } from '../components'
 
 const CreatePost = () => {
   const navigate = useNavigate()
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     name: '',
     prompt: '',
     photo: '',
   })
-  const [generatingImg, setgeneratingImg] = useState(false)
-  const [loading, setloading] = useState(false)
+  const [generatingImg, setGeneratingImg] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const generateImage = () => {
 
@@ -25,11 +25,12 @@ const CreatePost = () => {
   }
 
   const handleChange = (e) => {
-
+    setForm({ ...form, [e.target.name]: [e.target.value] })
   }
 
   const handleSurpriseMe = () => {
-
+    const randomPrompt = getRandomPrompt(form.prompt)
+    setForm({...form, prompt: randomPrompt})
   }
 
   return (
@@ -82,15 +83,24 @@ const CreatePost = () => {
             )}
           </div>
         </div>
-          <div className='mt-5 flex gap-5 '>
-              <button
-              type='button'
-              onClick={generateImage}
-              className='text-white bg-pink-400 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
-              >
-                {generatingImg ? 'Generating...' : 'Generate'}
-              </button>
-          </div>
+        <div className='mt-5 flex gap-5 '>
+          <button
+            type='button'
+            onClick={generateImage}
+            className='text-white bg-pink-400 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+          >
+            {generatingImg ? 'Generating...' : 'Generate'}
+          </button>
+        </div>
+        <div className='mt-10'>
+          <p className='mt-2 text-[#666E75] text-[14px]'>Once you have created the image you want, you can share it with others in the community!</p>
+          <button
+            type='submit'
+            className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+          >
+            {loading ? 'Sharing...' : 'Share with the community!'}
+          </button>
+        </div>
       </form>
     </section>
   )
