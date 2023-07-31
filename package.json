@@ -1,8 +1,14 @@
 {
-  "name": "client",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ai-image-generator-client",
+  "version": "1.0.0",
+  "license": "ISC",
+  "author": "https://github.com/Azrihell",
+  "description": "The Client Side Construction for an AI Image Generator App",
+  "repository": "https://github.com/Azrihell/AI-Image-Generator-Client",
+  "homepage": "https://github.com/Azrihell/AI-Image-Generator-Client",
+  "bugs": "https://github.com/Azrihell/AI-Image-Generator-Client/issues",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "vite --port=8000",
     "start": "vite --port=8000",
