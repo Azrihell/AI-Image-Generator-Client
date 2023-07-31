@@ -1,8 +1,20 @@
-# React + Vite
+# AI Image Generator - Client
+The client contruction for a `Dalle` like clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Getting Started
+Inside the project directory run:
+```
+$ npm install
+$ npm start
+```
+by default the application will run on `localhost:8000`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Project Requirements
+* [NPM](https://www.npmjs.com/)
+* [Node](https://nodejs.org/en/)
+* [Vite](https://vitejs.dev/)
+
+
+## Project Reference
+This project has an occompaning [server application](https://github.com/Azrihell/AI-Image-Generator-Server) that you'll need in order to fully engage with the application. 

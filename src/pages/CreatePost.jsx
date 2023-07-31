@@ -30,7 +30,7 @@ const CreatePost = () => {
 
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt)
-    setForm({...form, prompt: randomPrompt})
+    setForm({ ...form, prompt: randomPrompt })
   }
 
   return (
