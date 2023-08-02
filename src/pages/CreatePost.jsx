@@ -131,16 +131,16 @@ const CreatePost = () => {
           <button
             type='button'
             onClick={generateImage}
-            className='text-white bg-pink-400 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+            className='bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 border-b-4 border-pink-600 hover:border-pink-700 rounded'
           >
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
         </div>
         <div className='mt-10'>
-          <p className='mt-2 text-[#666E75] text-[14px]'>Once you have created the image you want, you can share it with others in the community!</p>
+          <p className='mt-3 text-[#666E75] text-[16px]'>Once you have created the image you want, you can share it with others in the community!</p>
           <button
             type='submit'
-            className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+            className='bg-transparent hover:bg-pink-400 text-pink-500 font-semibold hover:text-white py-2 px-4 mt-3 border border-pink-500 hover:border-transparent rounded'
           >
             {loading ? 'Sharing...' : 'Share with the community!'}
           </button>
