@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, FormField, Loader } from '../components';
 
+
+const baseURL = () => {
+  if (import.meta.env.MODE === "production") {
+    return 'https://ai-image-generator-server-gamma.vercel.app'
+  }
+  return 'http://localhost:3000'
+}
 
 
 const RenderCards = ({ data, title }) => {
@@ -23,11 +30,30 @@ const Home = () => {
   const [searchTimeout, setSearchTimeout] = useState(null)
   const [searchedResults, setSearchedResults] = useState(null)
 
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`${baseURL()}/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      if (response.ok) {
+        const result = await response.json()
+        console.log(`server version: ${result.version}`)
+      }
+
+
+
+
+    })()
+  }, [])
+
   const fetchPosts = async () => {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/post', {
+      const response = await fetch(`${baseURL()}/api/v1/post`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

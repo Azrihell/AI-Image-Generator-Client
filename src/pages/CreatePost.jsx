@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { preview } from '../assets'
 import { getRandomPrompt } from '../utils'
 import { FormField, Loader } from '../components'
 
-
+const baseURL = () => {
+  if(import.meta.env.MODE === "production") {
+    return 'https://ai-image-generator-server-gamma.vercel.app'
+  }  
+  return 'http://localhost:3000'
+}
 
 const CreatePost = () => {
   const navigate = useNavigate()
@@ -18,10 +23,11 @@ const CreatePost = () => {
   const [loading, setLoading] = useState(false)
 
   const generateImage = async () => {
+    console.log(import.meta.env.MODE)
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch(`${baseURL()}/api/v1/dalle`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +54,7 @@ const CreatePost = () => {
     if (form.prompt && form.photo) {
       setLoading(true)
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch(`${baseURL()}/api/v1/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
