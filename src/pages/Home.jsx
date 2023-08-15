@@ -30,20 +30,6 @@ const Home = () => {
   const [searchTimeout, setSearchTimeout] = useState(null)
   const [searchedResults, setSearchedResults] = useState(null)
 
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(`${baseURL()}/`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      if (response.ok) {
-        const result = await response.json()
-        console.log(`server version: ${result.version}`)
-      }
-    })()
-  }, [])
 
   const fetchPosts = async () => {
     setLoading(true)

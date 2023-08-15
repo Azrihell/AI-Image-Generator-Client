@@ -1,9 +1,35 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { logo } from './assets'
 import { Home, CreatePost } from './pages'
+import pjson from "../package.json"
 
-const App = () => {
+
+const baseURL = () => {
+  if (import.meta.env.MODE === "production") {
+    return 'https://ai-image-generator-server-gamma.vercel.app'
+  }
+  return 'http://localhost:3000'
+}
+
+
+export const App = () => {
+  useEffect(() => {
+    (async () => {
+      console.log(`client version: ${pjson.version}`)
+      const response = await fetch(`${baseURL()}/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      if (response.ok) {
+        const result = await response.json()
+        console.log(`server version: ${result.version}`)
+      }
+    })()
+  }, [])
+
   return (
     <BrowserRouter>
       <header className='w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]'>
@@ -21,5 +47,3 @@ const App = () => {
     </BrowserRouter>
   )
 }
-
-export default App
