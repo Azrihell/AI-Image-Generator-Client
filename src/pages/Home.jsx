@@ -42,10 +42,6 @@ const Home = () => {
         const result = await response.json()
         console.log(`server version: ${result.version}`)
       }
-
-
-
-
     })()
   }, [])
 

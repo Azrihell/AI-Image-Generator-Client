@@ -23,7 +23,6 @@ const CreatePost = () => {
   const [loading, setLoading] = useState(false)
 
   const generateImage = async () => {
-    console.log(import.meta.env.MODE)
     if (form.prompt) {
       try {
         setGeneratingImg(true);
