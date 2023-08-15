@@ -2,7 +2,7 @@
 The client contruction for a `Dalle` like clone. 
 
 ## View It Live
-If you just want to view and play with the application, you can do so [here](https://ai-image-generator-client-phi.vercel.app/).
+If you just want to view and play with the application, you can do so [here](https://ai-image-generator-client.vercel.app/).
 
 ## Getting Started
 Inside the project directory run:
